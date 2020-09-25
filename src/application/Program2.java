@@ -14,15 +14,15 @@ public class Program2 {
 
 		Scanner sc = new Scanner(System.in);
 		
-		DepartmentDao DepartmentDao = Daofactory.createDepartmentDao();
+		DepartmentDao departmentDao = Daofactory.createDepartmentDao();
 		System.out.println("Create connection complete sucessufully");
 
 		System.out.println("==== TEST 1: Department findById ====");
-		Department department = DepartmentDao.findById(3);
+		Department department = departmentDao.findById(3);
 		System.out.println(department);
 		
 		System.out.println("\n==== TEST 2: Department findAll ====");
-		List<Department> list = DepartmentDao.findAll();
+		List<Department> list = departmentDao.findAll();
 		for(Department obj : list) {
 			System.out.println(obj);
 		}
@@ -30,19 +30,19 @@ public class Program2 {
 		
 		System.out.println("\n==== TEST 3: Department Insert ====");
 		Department newDepartment = new Department(null, "RH");
-		DepartmentDao.insert(newDepartment);
+		departmentDao.insert(newDepartment);
 		System.out.println("Inserted! New id = " + newDepartment.getId());
 
 		System.out.println("\n==== TEST 4: Department Update ====");
-		department = DepartmentDao.findById(8);
+		department = departmentDao.findById(8);
         department.setName("New Depto");
-		DepartmentDao.update(department);
+		departmentDao.update(department);
 		System.out.println("Update completed !");
 
 		System.out.println("\n==== TEST 5: Department delete ====");
 		System.out.println("Enter Id for delete test: ");
 		int id = sc.nextInt();
-		DepartmentDao.deleteById(id);
+		departmentDao.deleteById(id);
 		System.out.println("Delete completed !");
 
 		
